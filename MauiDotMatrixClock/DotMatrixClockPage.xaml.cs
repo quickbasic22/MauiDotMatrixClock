@@ -88,10 +88,11 @@ public partial class DotMatrixClockPage : ContentPage
                     BoxView boxView = new BoxView();
                     digitBoxViews[digit, row, col] = boxView;
 
-                    absoluteLayout.SetLayoutBounds(boxView, new Rect(x, y, width, height));
                     absoluteLayout.SetLayoutFlags(boxView, AbsoluteLayoutFlags.All);
+                    absoluteLayout.SetLayoutBounds(boxView, new Rect(x, y, width, height));
+                    
                     absoluteLayout.Children.Add(boxView);
-                    y += xIncrement;
+                    y += yIncrement;
                 }
                 x += xIncrement;
             }
@@ -161,7 +162,7 @@ public partial class DotMatrixClockPage : ContentPage
 
     private void ContentPage_SizeChanged(object sender, EventArgs e)
     {
-        absoluteLayout.HeightRequest = vertDots * Width / horzDots;
+      absoluteLayout.HeightRequest = vertDots * Width / horzDots;
     }
 }
 
